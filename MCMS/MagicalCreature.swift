@@ -19,4 +19,12 @@ class MagicalCreature
         self.name = name
         self.accessory = accessory
     }
+    
+    func setName(name: String){
+        self.name = name
+    }
+    
+    func setAccessory(accessory: String){
+        self.accessory = accessory
+    }
 }
