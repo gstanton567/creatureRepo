@@ -8,9 +8,10 @@
 
 import UIKit
 
-class CreatureViewController: UIViewController {
+class CreatureViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var creature : MagicalCreature!
+    
+        var creature : MagicalCreature!
     var bool = false
     var bool2 = false
     @IBOutlet weak var editTextField: UITextField!
@@ -68,4 +69,18 @@ class CreatureViewController: UIViewController {
         creature.setDetail(detail: detailTextField.text!)
         detailTextView.text = creature.detail
     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var creatures : [String] = [creature.accessory]
+
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellID2")!
+        let creature = creatures[indexPath.row]
+        cell.textLabel!.text = creature
+        
+        return cell
+    }
+    
 }

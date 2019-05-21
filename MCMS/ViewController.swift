@@ -25,6 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let phoenix = MagicalCreature(name: "phoenix", detail: "rebirth", picture: "bird", accessory: "beak")
         creatures = [patty, dragon, phoenix]
         
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
