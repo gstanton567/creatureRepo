@@ -20,9 +20,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let patty = MagicalCreature(name: "Patrick", accessory: "Ray-Bands")
-        let dragon = MagicalCreature(name: "dragon", accessory: "fire")
-        let phoenix = MagicalCreature(name: "phoenix", accessory: "rebirth")
+        let patty = MagicalCreature(name: "Patrick", detail: "Ray-Bands", picture: "patty", accessory: "insulin pump")
+        let dragon = MagicalCreature(name: "dragon", detail: "fire", picture: "dragon", accessory: "tooth")
+        let phoenix = MagicalCreature(name: "phoenix", detail: "rebirth", picture: "bird", accessory: "beak")
         creatures = [patty, dragon, phoenix]
         
     }
@@ -37,13 +37,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID")!
         let creature = creatures[indexPath.row]
         cell.textLabel!.text = creature.name
-        cell.detailTextLabel?.text = creature.accessory
+        cell.detailTextLabel?.text = creature.detail
         return cell
     }
 
 
     @IBAction func onAddPressed(_ sender: UIButton) {
-        let creature = MagicalCreature(name: creatureTextField.text!, accessory: "")
+        let creature = MagicalCreature(name: creatureTextField.text!, detail: "", picture: "", accessory: "")
         creatures.append(creature)
         creatureTextField.text = ""
         tableView.reloadData()

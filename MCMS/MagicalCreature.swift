@@ -12,11 +12,15 @@ class MagicalCreature
 {
     
     var name: String!
-    var accessory : String!
+    var detail : String!
+    var picture: String!
+    var accessory: String!
     
-    init(name: String, accessory: String)
+    init(name: String, detail: String, picture: String, accessory: String)
     {
         self.name = name
+        self.detail = detail
+        self.picture = picture
         self.accessory = accessory
     }
     
@@ -24,7 +28,11 @@ class MagicalCreature
         self.name = name
     }
     
-    func setAccessory(accessory: String){
-        self.accessory = accessory
+    func setDetail(detail: String){
+        self.detail = detail
+    }
+    
+    func setImage(picture: String) {
+        self.picture = picture
     }
 }

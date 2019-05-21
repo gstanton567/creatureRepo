@@ -15,6 +15,10 @@ class CreatureViewController: UIViewController {
     var bool2 = false
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var detailButton: UIButton!
+    @IBOutlet weak var detailTextField: UITextField!
+    @IBOutlet weak var detailTextView: UITextView!
+    @IBOutlet weak var creatureImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,11 @@ class CreatureViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         editTextField.isHidden = true
+        detailTextField.isHidden = true
+        
+        if creature.picture != ""{
+            creatureImageView.image = UIImage(named: creature.picture)
+        }
     }
     
 
@@ -47,12 +56,16 @@ class CreatureViewController: UIViewController {
     
 
     @IBAction func onDetailPressed(_ sender: Any) {
-        if !bool  {
-            editButton.setTitle("Done", for: .normal)
-            print("yo")
+        if !bool2  {
+            detailButton.setTitle("Done", for: .normal)
+            
         }else{
-            editButton.setTitle("Edit", for: .normal)
+            detailButton.setTitle("Detail", for: .normal)
         }
-        bool = !bool
+        bool2 = !bool2
+        
+        detailTextField.isHidden = !detailTextField.isHidden
+        creature.setDetail(detail: detailTextField.text!)
+        detailTextView.text = creature.detail
     }
 }
