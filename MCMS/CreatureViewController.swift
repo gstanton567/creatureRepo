@@ -12,7 +12,7 @@ class CreatureViewController: UIViewController {
     
     var creature : MagicalCreature!
     var bool = false
-    
+    var bool2 = false
     @IBOutlet weak var editTextField: UITextField!
     @IBOutlet weak var editButton: UIButton!
     
@@ -30,10 +30,10 @@ class CreatureViewController: UIViewController {
 
     @IBAction func onEditPressed(_ sender: UIButton) {
         if !bool  {
-            editButton.titleLabel!.text = "Done"
-            
+            editButton.setTitle("Done", for: .normal)
+            print("yo")
         }else{
-            editButton.titleLabel!.text = "bruh"
+            editButton.setTitle("Edit", for: .normal)
         }
         bool = !bool
         
@@ -44,14 +44,15 @@ class CreatureViewController: UIViewController {
         
         
     }
-    /*
-    // MARK: - Navigation
+    
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func onDetailPressed(_ sender: Any) {
+        if !bool  {
+            editButton.setTitle("Done", for: .normal)
+            print("yo")
+        }else{
+            editButton.setTitle("Edit", for: .normal)
+        }
+        bool = !bool
     }
-    */
-
 }

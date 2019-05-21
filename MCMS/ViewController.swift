@@ -24,8 +24,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let dragon = MagicalCreature(name: "dragon", accessory: "fire")
         let phoenix = MagicalCreature(name: "phoenix", accessory: "rebirth")
         creatures = [patty, dragon, phoenix]
+        
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return creatures.count
     }
@@ -34,6 +37,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellID")!
         let creature = creatures[indexPath.row]
         cell.textLabel!.text = creature.name
+        cell.detailTextLabel?.text = creature.accessory
         return cell
     }
 
