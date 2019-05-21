@@ -12,6 +12,8 @@
 		15C979AB2294802600A3171B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C979A92294802600A3171B /* Main.storyboard */; };
 		15C979AD2294802900A3171B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 15C979AC2294802900A3171B /* Assets.xcassets */; };
 		15C979B02294802900A3171B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 15C979AE2294802900A3171B /* LaunchScreen.storyboard */; };
+		15C979B82294808200A3171B /* MagicalCreature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C979B72294808200A3171B /* MagicalCreature.swift */; };
+		15C979BA2294848600A3171B /* CreatureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15C979B92294848600A3171B /* CreatureViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		15C979AC2294802900A3171B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		15C979AF2294802900A3171B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		15C979B12294802900A3171B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		15C979B72294808200A3171B /* MagicalCreature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicalCreature.swift; sourceTree = "<group>"; };
+		15C979B92294848600A3171B /* CreatureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatureViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,8 @@
 				15C979A52294802600A3171B /* AppDelegate.swift */,
 				15C979A72294802600A3171B /* ViewController.swift */,
 				15C979A92294802600A3171B /* Main.storyboard */,
+				15C979B92294848600A3171B /* CreatureViewController.swift */,
+				15C979B72294808200A3171B /* MagicalCreature.swift */,
 				15C979AC2294802900A3171B /* Assets.xcassets */,
 				15C979AE2294802900A3171B /* LaunchScreen.storyboard */,
 				15C979B12294802900A3171B /* Info.plist */,
@@ -136,7 +142,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				15C979A82294802600A3171B /* ViewController.swift in Sources */,
+				15C979BA2294848600A3171B /* CreatureViewController.swift in Sources */,
 				15C979A62294802600A3171B /* AppDelegate.swift in Sources */,
+				15C979B82294808200A3171B /* MagicalCreature.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
