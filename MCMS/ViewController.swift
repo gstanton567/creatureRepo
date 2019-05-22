@@ -12,20 +12,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     
     var creatures: [MagicalCreature] = []
+    var isAddButtonPressed = true
     
     
     @IBOutlet weak var creatureTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let patty = MagicalCreature(name: "Patrick", detail: "Ray-Bands", picture: "patty", accessory: "insulin pump")
-        let dragon = MagicalCreature(name: "dragon", detail: "fire", picture: "dragon", accessory: "tooth")
-        let phoenix = MagicalCreature(name: "phoenix", detail: "rebirth", picture: "bird", accessory: "beak")
+        let patty = MagicalCreature(name: "Patrick", detail: "Insulin Pump", picture: "patty", accessory: "Ray-Bands")
+        let dragon = MagicalCreature(name: "Dragon", detail: "Fire", picture: "dragon", accessory: "Tooth")
+        let phoenix = MagicalCreature(name: "Phoenix", detail: "Rebirth", picture: "bird", accessory: "Beak")
         creatures = [patty, dragon, phoenix]
         
-        
+    // MARK: - Table View functions
     }
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -41,19 +44,44 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         cell.detailTextLabel?.text = creature.detail
         return cell
     }
-
-
+    
+    // MARK: - Button Actions
     @IBAction func onAddPressed(_ sender: UIButton) {
+        
         let creature = MagicalCreature(name: creatureTextField.text!, detail: "", picture: "", accessory: "")
         creatures.append(creature)
         creatureTextField.text = ""
         tableView.reloadData()
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let indexPath = tableView.indexPathForSelectedRow!
-        let creature = creatures[indexPath.row]
-        let cvc = segue.destination as! CreatureViewController
-        cvc.creature = creature
+    
+    @IBAction func battleButtonPressed(_ sender: UIButton) {
+        
+        performSegue(withIdentifier: "maintoBattleSegue", sender: nil)
+        
     }
+    
+    // MARK: - Segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "maintoBattleSegue"{
+            let winnernumber = creatures[Int.random(in: 0...(creatures.count-1))]
+            let winner = winnernumber.name!
+            let reasonForWin = winnernumber.detail!
+            let bvc = segue.destination as! BattleViewController
+            bvc.winner = winner
+            bvc.reasonForWin = reasonForWin
+            
+            
+        }
+        else{
+            let indexPath = tableView.indexPathForSelectedRow!
+            let creature = creatures[indexPath.row]
+            let cvc = segue.destination as! CreatureViewController
+            cvc.creature = creature
+        }
+    }
+    
+    
+    
+    
 }
 

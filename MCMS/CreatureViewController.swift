@@ -83,4 +83,6 @@ class CreatureViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+    
+    
 }
